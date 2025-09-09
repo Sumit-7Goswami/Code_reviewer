@@ -1,8 +1,9 @@
 services:
-  # Backend Service (Node.js)
+  # Backend Service (Node.js) - Free Tier
   - type: web
     name: ai-code-reviewer-backend
     env: node
+    region: oregon
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     envVars:
@@ -13,9 +14,10 @@ services:
       - key: GOOGLE_AI_API_KEY
         sync: false  # Set this in Render dashboard
 
-  # Frontend Service (Static Site - Free)
+  # Frontend Service (Static Site) - Free Tier
   - type: static_site
     name: ai-code-reviewer-frontend
+    region: oregon
     buildCommand: cd frontend && npm install && npm run build
     publishPath: frontend/dist
     envVars:
