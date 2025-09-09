@@ -1,5 +1,5 @@
 services:
-  # Backend Service
+  # Backend Service (Node.js)
   - type: web
     name: ai-code-reviewer-backend
     env: node
@@ -11,14 +11,13 @@ services:
       - key: PORT
         value: 10000
       - key: GOOGLE_AI_API_KEY
-        sync: false  # You'll set this in Render dashboard
+        sync: false  # Set this in Render dashboard
 
-  # Frontend Service
-  - type: web
+  # Frontend Service (Static Site - Free)
+  - type: static_site
     name: ai-code-reviewer-frontend
-    env: node
     buildCommand: cd frontend && npm install && npm run build
-    startCommand: npx serve -s frontend/dist -l 10001
+    publishPath: frontend/dist
     envVars:
       - key: VITE_API_URL
         value: https://ai-code-reviewer-backend.onrender.com
