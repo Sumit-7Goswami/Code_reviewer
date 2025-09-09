@@ -16,7 +16,7 @@ Code Reviewer is an AI-powered MERN stack application that helps developers auto
 
 🛠️ Tech Stack
 
-Frontend: React, TailwindCSS (if used)
+Frontend: React, TailwindCss
 
 Backend: Node.js, Express.js
 
